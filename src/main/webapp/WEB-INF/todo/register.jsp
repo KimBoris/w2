@@ -1,0 +1,24 @@
+<%@include file="../includes/header.jsp" %>
+
+<div class="card" style="margin: 3em">
+
+    <p>Todo Register Page</p>
+
+    <div class="card-body">
+        <form action="/todo/register" method="post" <%--target="_blank"--%>> <%--새창 뜨는거 확인후 타겟 블랭크 지워라--%>
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Writer</label>
+                <input type="text" name="writer" class="form-control" placeholder="user00">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">SAVE</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%@include file="../includes/footer.jsp" %>
