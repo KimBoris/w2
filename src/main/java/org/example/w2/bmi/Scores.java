@@ -2,10 +2,11 @@ package org.example.w2.bmi;
 
 import lombok.*;
 
+
 @ToString
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class Scores {
 
@@ -15,6 +16,13 @@ public class Scores {
     private int subject4;
     private int subject5;
 
+
+    public void close() {
+        System.out.println("close______________________");
+        System.out.println("close______________________");
+        System.out.println("close______________________");
+        System.out.println("close______________________");
+    }
 
 
 }

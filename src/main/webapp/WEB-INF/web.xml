@@ -3,4 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error500.jsp</location> <!--경로이기에 jsp일 필요는 없다. Controller도 가능-->
+    </error-page>
+
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location> <!--경로이기에 jsp일 필요는 없다. Controller도 가능-->
+    </error-page>
+
+
 </web-app>

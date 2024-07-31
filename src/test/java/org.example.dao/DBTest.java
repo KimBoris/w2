@@ -4,16 +4,44 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
+import org.example.w2.bmi.Scores;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 @Log4j2
 public class DBTest {
+
+    @Test
+    public void testRemote() throws Exception {
+       /* String url = "jdbc:mariadb://localhost:13306/webdb";
+        String username = "webdbuser";
+        String password = "webdbuser";
+*/
+
+        @Cleanup Scores scores = new Scores();
+
+        int[] arr = {1,2,3};
+        log.info(arr[3]);
+        //배열에서 발생하는 오류
+        //1. ArrayIndexOutofIndex  ex) log.info(arr[3]); >그래도 close()가 될까?
+        //> 예외는 발생하지만 close는 찎힌다.
+        //2.
+
+        /*Class.forName("org.mariadb.jdbc.Driver");
+
+        long start = System.currentTimeMillis();
+
+        for (int i = 0; i < 100; i++) {
+         @Cleanup Connection connection = DriverManager.getConnection(url, username, password);
+
+        }
+        long end = System.currentTimeMillis();
+
+        log.info("걸린시간 = " + (end - start));*/
+    }
+
 
     @Test
     public void testInsert() throws Exception {
@@ -135,8 +163,8 @@ public class DBTest {
     }
 
 
-    @Test
-    public void testSelect()throws Exception {
+  /*  @Test
+    public void testSelect() throws Exception {
 
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("org.mariadb.jdbc.Driver");
@@ -146,7 +174,7 @@ public class DBTest {
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        config.setConnectionTimeout(1000*10);
+        config.setConnectionTimeout(1000 * 10);
         config.setMaximumPoolSize(100);
         config.setMinimumIdle(1);
         HikariDataSource ds = new HikariDataSource(config);
@@ -159,7 +187,7 @@ public class DBTest {
             //데코레이터 패턴 중 하나.
             //횡령 사고 : 커넥션 풀이
             @Cleanup Connection con = ds.getConnection();
-            String sql ="select * from tbl_todo where tno > 0 order by tno desc limit 0,10";
+            String sql = "select * from tbl_todo where tno > 0 order by tno desc limit 0,10";
             @Cleanup PreparedStatement ps = con.prepareStatement(sql);
             @Cleanup ResultSet rs = ps.executeQuery();
 
@@ -176,5 +204,5 @@ public class DBTest {
         long end = System.currentTimeMillis();
         log.info("----------------------------------------");
         log.info(end - start);
-    }
+    }*/
 }

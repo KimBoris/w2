@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @ToString
 public class TodoVO {
 
-    private int tno;
+    private Integer tno;
     private String title;
     private String writer;
     private Timestamp regdate;
